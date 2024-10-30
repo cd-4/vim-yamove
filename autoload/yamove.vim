@@ -77,7 +77,7 @@ function yamove#YaMove(direction, desiredIndentChange)
                     return
                 else
                     let g:yamlMoveLimitedDirection = a:direction
-                    " call EchoWarning("YamlMove Hit Limit")
+                    call EchoWarning("YaMove Hit Limit")
                     return
                 endif
                 "Exit if found higher level for other movements
