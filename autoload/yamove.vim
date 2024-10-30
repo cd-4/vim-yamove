@@ -42,6 +42,10 @@ function yamove#YaMove(direction, desiredIndentChange)
     let startLine = getline(currentLineIndex)
     let startIndents = LineIndentCount(startLine)
 
+    let count = v:count ? v:count : 1
+    echom count
+
+
     if !exists("g:enableYaMoveMultipleHits")
         let g:enableYaMoveMultipleHits = 0
     endif
