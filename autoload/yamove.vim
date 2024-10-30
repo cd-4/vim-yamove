@@ -12,7 +12,6 @@ let g:loaded_vim_yamove = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-let g:enableYaMoveMultipleHits = 0
 let g:yaMoveLimitedDirection = 0
 
 function LineIndentCount(line)

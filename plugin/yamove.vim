@@ -13,6 +13,7 @@ if exists("g:loaded_vim_yamove")
     finish
 endif
 let g:loaded_vim_yamove = 1
+let g:enableYaMoveMultipleHits = 0
 
 " evacuate user setting temporarily
 let s:save_cpo = &cpo
