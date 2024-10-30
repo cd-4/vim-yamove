@@ -36,15 +36,20 @@ function! EchoWarning(msg)
     echohl None
 endfunction
 
-function yamove#YaMove(direction, desiredIndentChange)
+function yamove#YaMoveRepeat(direction, desiredIndentChange)
+    let max_iterations = v:count ? v:count : 1
+    let iterations = 0
+    while (iterations < max_iterations)
+        let iterations += 1
+        call YaMove(a:direction, a:desiredIndentChange)
+    endwhile
+endfunction
+
+function YaMove(direction, desiredIndentChange)
     let currentLineIndex = line('.')
     let totalLines = line('$')
     let startLine = getline(currentLineIndex)
     let startIndents = LineIndentCount(startLine)
-
-    let count = v:count ? v:count : 1
-    echom count
-
 
     if !exists("g:enableYaMoveMultipleHits")
         let g:enableYaMoveMultipleHits = 0
