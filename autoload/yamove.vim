@@ -13,7 +13,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 let g:enableYaMoveMultipleHits = 0
-let g:yamlMoveLimitedDirection = 0
+let g:yaMoveLimitedDirection = 0
 
 function LineIndentCount(line)
     let numSpaces = 0
@@ -71,12 +71,12 @@ function yamove#YaMove(direction, desiredIndentChange)
                 call GoToLine(currentLineIndex)
                 return
             else
-                if (g:yamlMoveLimitedDirection == a:direction && g:enableYaMoveMultipleHits == 1)
-                    let g:yamlMoveLimitedDirection = 0
+                if (g:yaMoveLimitedDirection == a:direction && g:enableYaMoveMultipleHits == 1)
+                    let g:yaMoveLimitedDirection = 0
                     call GoToLine(currentLineIndex)
                     return
                 else
-                    let g:yamlMoveLimitedDirection = a:direction
+                    let g:yaMoveLimitedDirection = a:direction
                     call EchoWarning("YaMove Hit Limit")
                     return
                 endif
