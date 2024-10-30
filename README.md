@@ -26,7 +26,7 @@ YaMoveOut | Move to a line above with lesser indentation
 The `YaMoveUp` and `YaMoveDown` functions will stop upon reaching a line with
 lesser indentation.
 
-If you would like to disable this, you can set `g:enableYamlMoveMultipleHits = 1` (Default is `0`). With this set, your initial move will stop, then on a subsequent call of `YaMoveUp` or `YaMoveDown`, it will bring you to that line that blocked you.
+If you would like to disable this, you can set `g:enableYaMoveMultipleHits = 1` (Default is `0`). With this set, your initial move will stop, then on a subsequent call of `YaMoveUp` or `YaMoveDown`, it will bring you to that line that blocked you.
 
 
 ## Usage
