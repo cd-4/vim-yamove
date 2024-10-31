@@ -155,14 +155,13 @@ function YaFoldBelow(lineNumber)
     endif
 
     " execute "norm " . foldTop . "Gzf" . (foldBottom - foldTop) . "j"
-    execute "norm " . foldTop . "Gz" . foldBottom . "G"
+    execute "norm " . foldTop . "Gzf" . foldBottom . "G"
     call MoveToLine(startLine)
 endfunction
 
 function YaUnfoldBelow(lineNumber)
     "Open enclosing fold
     norm jzo
-    return
 
     " Close other folds inside
     let currentLine = CurrentLineNumber()
