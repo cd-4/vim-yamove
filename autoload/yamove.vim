@@ -150,7 +150,7 @@ function YaFoldBelow(lineNumber)
 
     let foldTop = GetEndOfIndentationLevel(foldLine, -1) + 1
     let foldBottom = GetEndOfIndentationLevel(foldLine, 1) - 1
-    if foldBottom = line('$') - 1
+    if foldBottom == line('$') - 1
         let foldBottom += 1
     endif
 
