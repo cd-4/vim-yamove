@@ -127,8 +127,8 @@ function yamove#YaMoveDown()
     endif
 
     if (g:enableYaMoveMultipleHits == 1 && 
-                \ currentLine == position &&
-                \ g:yaMoveLimitedDirection == 1)
+            \ currentLine == position &&
+            \ g:yaMoveLimitedDirection == 1)
         call yamove#YaMoveOutDown()
     else
         call MoveToLine(position)
@@ -140,21 +140,25 @@ endfunction
 function yamove#YaMoveOut()
     let position = GetEndOfIndentationLevel(CurrentLineNumber(), -1)
     call MoveToLine(position)
+    let g:yaMoveLimitedDirection = 0
 endfunction
 
 function yamove#YaMoveOutDown()
     let position = GetEndOfIndentationLevel(CurrentLineNumber(), 1)
     call MoveToLine(position)
+    let g:yaMoveLimitedDirection = 0
 endfunction
 
 function yamove#YaMoveIn()
     let position = YaMoveInDirectional(1)
     call MoveToLine(position)
+    let g:yaMoveLimitedDirection = 0
 endfunction
 
 function yamove#YaMoveInUp()
     let position = YaMoveInDirectional(-1)
     call MoveToLine(position)
+    let g:yaMoveLimitedDirection = 0
 endfunction
 
 function YaFoldBelow(lineNumber)
