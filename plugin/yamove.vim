@@ -18,10 +18,16 @@ let g:loaded_vim_yamove = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-command! -nargs=0 -range YaMoveDown call yamove#YaMoveRepeat(1, 0)
-command! -nargs=0 -range YaMoveUp call yamove#YaMoveRepeat(-1, 0)
-command! -nargs=0 -range YaMoveIn call yamove#YaMoveRepeat(1, 1)
-command! -nargs=0 -range YaMoveOut call yamove#YaMoveRepeat(-1, -1)
+command! -nargs=0 -range YaMoveDown call yamove#YaMoveDown()
+command! -nargs=0 -range YaMoveUp call yamove#YaMoveUp()
+command! -nargs=0 -range YaMoveIn call yamove#YaMoveIn()
+command! -nargs=0 -range YaMoveOut call yamove#YaMoveOut()
+
+
+"command! -nargs=0 -range YaMoveDown call yamove#YaMoveRepeat(1, 0)
+"command! -nargs=0 -range YaMoveUp call yamove#YaMoveRepeat(-1, 0)
+"command! -nargs=0 -range YaMoveIn call yamove#YaMoveRepeat(1, 1)
+"command! -nargs=0 -range YaMoveOut call yamove#YaMoveRepeat(-1, -1)
 
 " restore user setting
 let &cpo = s:save_cpo
