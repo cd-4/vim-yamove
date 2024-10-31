@@ -187,7 +187,7 @@ function yamove#ToggleYaFold()
     else
         call YaUnfoldBelow(startLine)
     endif
-    call MoveToLine(a:lineNumber)
+    call MoveToLine(startLine)
 endfunction
 
 
