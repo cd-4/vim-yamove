@@ -154,13 +154,14 @@ function YaFoldBelow(lineNumber)
         let foldBottom += 1
     endif
 
-    execute "norm " . foldTop . "Gzf" . (foldBottom - foldTop) . "j"
+    " execute "norm " . foldTop . "Gzf" . (foldBottom - foldTop) . "j"
+    execute "norm " . foldTop . "Gz" . foldBottom . "G"
     call MoveToLine(startLine)
 endfunction
 
 function YaUnfoldBelow(lineNumber)
     "Open enclosing fold
-    norm jzoj
+    norm jzo
     return
 
     " Close other folds inside
@@ -186,6 +187,7 @@ function yamove#ToggleYaFold()
     else
         call YaUnfoldBelow(startLine)
     endif
+    call MoveToLine(a:lineNumber)
 endfunction
 
 
