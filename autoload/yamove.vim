@@ -114,11 +114,24 @@ endfunction
 function yamove#YaMoveUp()
     let position = GetNextSameIndentation(CurrentLineNumber(), -1)
     call MoveToLine(position)
+
+    let g:yaMoveLimitedDirection = -1
 endfunction
 
 function yamove#YaMoveDown()
-    let position = GetNextSameIndentation(CurrentLineNumber(), 1)
+    let currentLine = CurrentLineNumber()
+    let position = GetNextSameIndentation(currentLine, 1)
+
+    if !exists("g:enableYaMoveMultipleHits")
+        let g:enableYaMoveMultipleHits = 0
+    endif
+
+    if (g:enableYaMoveMultipleHits == 1 && currentLine == position)
+        call yamove#YaMoveOutDown()
+    endif
     call MoveToLine(position)
+
+    let g:yaMoveLimitedDirection = 1
 endfunction
 
 function yamove#YaMoveOut()
