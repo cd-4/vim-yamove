@@ -168,12 +168,12 @@ function YaUnfoldBelow(lineNumber)
     let nextLine = YaMoveUpDownPosition(currentLine, 1)
     while (nextLine != currentLine)
         echo currentLine
-        " call YaFoldBelow(currentLine)
+        call YaFoldBelow(currentLine)
         let currentLine = nextLine
         let nextLine = YaMoveUpDownPosition(currentLine, 1)
     endwhile
     echo nextLine
-    " call YaFoldBelow(nextLine)
+    call YaFoldBelow(nextLine)
 
     call MoveToLine(a:lineNumber)
 endfunction
