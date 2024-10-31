@@ -123,7 +123,7 @@ function yamove#YaMoveUp()
 
     if (g:enableYaMoveMultipleHits && currentLine == position)
         if (g:yaMoveLimitedDirection == -1)
-            call yamove#YaMoveOutDown()
+            call yamove#YaMoveOut()
         else
             let g:yaMoveLimitedDirection = -1
         endif
