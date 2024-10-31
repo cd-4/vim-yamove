@@ -161,7 +161,7 @@ endfunction
 
 function YaUnfoldBelow(lineNumber)
     "Open enclosing fold
-    MoveToLine(a:lineNumber)
+    call MoveToLine(a:lineNumber)
     norm jzo
 
     " Close other folds inside
