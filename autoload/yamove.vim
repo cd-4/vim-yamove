@@ -112,10 +112,25 @@ function YaMoveInDirectional(direction)
 endfunction
 
 function yamove#YaMoveUp()
-    let position = GetNextSameIndentation(CurrentLineNumber(), -1)
-    call MoveToLine(position)
+    let currentLine = CurrentLineNumber()
+    let position = GetNextSameIndentation(currentLine, -1)
 
-    let g:yaMoveLimitedDirection = -1
+
+
+    if !exists("g:enableYaMoveMultipleHits")
+        let g:enableYaMoveMultipleHits = 0
+    endif
+
+    if (g:enableYaMoveMultipleHits && currentLine == position)
+        if (g:yaMoveLimitedDirection == -1)
+            call yamove#YaMoveOutDown()
+        else
+            let g:yaMoveLimitedDirection = -1
+        endif
+    else
+        MoveToLine(position)
+    endif
+
 endfunction
 
 function yamove#YaMoveDown()
@@ -126,15 +141,15 @@ function yamove#YaMoveDown()
         let g:enableYaMoveMultipleHits = 0
     endif
 
-    if (g:enableYaMoveMultipleHits == 1 && 
-            \ currentLine == position &&
-            \ g:yaMoveLimitedDirection == 1)
-        call yamove#YaMoveOutDown()
+    if (g:enableYaMoveMultipleHits && currentLine == position)
+        if (g:yaMoveLimitedDirection == 1)
+            call yamove#YaMoveOutDown()
+        else
+            let g:yaMoveLimitedDirection = 1
+        endif
     else
-        call MoveToLine(position)
+        MoveToLine(position)
     endif
-
-    let g:yaMoveLimitedDirection = 1
 endfunction
 
 function yamove#YaMoveOut()
