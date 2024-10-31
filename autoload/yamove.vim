@@ -126,10 +126,13 @@ function yamove#YaMoveDown()
         let g:enableYaMoveMultipleHits = 0
     endif
 
-    if (g:enableYaMoveMultipleHits == 1 && currentLine == position)
+    if (g:enableYaMoveMultipleHits == 1 && 
+                \ currentLine == position &&
+                \ g:yaMoveLimitedDirection == 1)
         call yamove#YaMoveOutDown()
+    else
+        call MoveToLine(position)
     endif
-    call MoveToLine(position)
 
     let g:yaMoveLimitedDirection = 1
 endfunction
