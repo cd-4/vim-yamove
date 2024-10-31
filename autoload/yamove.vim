@@ -128,7 +128,7 @@ function yamove#YaMoveUp()
             let g:yaMoveLimitedDirection = -1
         endif
     else
-        MoveToLine(position)
+        call MoveToLine(position)
     endif
 
 endfunction
@@ -148,7 +148,7 @@ function yamove#YaMoveDown()
             let g:yaMoveLimitedDirection = 1
         endif
     else
-        MoveToLine(position)
+        call MoveToLine(position)
     endif
 endfunction
 
