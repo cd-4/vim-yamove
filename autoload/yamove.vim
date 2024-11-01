@@ -245,8 +245,10 @@ function yamove#YaMoveIn()
         if (MoveOnMultipleHits())
             if (g:yaMoveAttemptedInnerMove == 1)
 
+                echom "Start line " . line
                 "Attempt to find next line and move in
                 let nextInner = FindNextInnerSection(line, 1)
+                echom "Next Inner " . nextInner
                 if (IsFolded(nextInner))
                     call yamove#YaUnfoldBelow(nextInner - 1)
                 endif
