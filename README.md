@@ -34,7 +34,7 @@ Setting (1=enabled, 0=disabled) | Description | Default
 --- | --- | ---
 g:enableYaMoveSmartFolds | Enable intelligent folding to hide levels with more indentation | 0
 g:enableYaMoveCloseOnMoveOut | Enable to close folds when using `YaMoveOut` or `YaMoveOutDown` | 1
-g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after pressing the direction twice | 1
+g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after using `YaMoveUp` or `YaMoveDown` twice, also allows moving to the next inner sections with `YaMoveIn` or `YaMoveInUp` | 1
 
 ## Usage
 
