@@ -206,6 +206,26 @@ function yamove#YaMoveOutDown()
     call MoveToLine(bottom, 1)
 endfunction
 
+function FindNextInnerSection(startLine, direction)
+    let currentLine = a:startLine
+    let startIndentation = GetIndentationDepth(currentLine)
+
+    let currentDepth = GetIndentationDepth(currentLine)
+    while ((currentDepth == startIndentation
+                \ || currentDepth == -1)
+                \ && currentLine > 0
+                \ && currentLine <= line('$'))
+        let currentLine += a:direction
+        let currentDepth = GetIndentationDepth(currentLine)
+        if (currentDepth > startIndentation)
+            return currentLine
+        else
+            return a:startLine
+        endif
+    endwhile
+    return a:startLine
+endfunction
+
 function yamove#YaMoveIn()
     let currentLine = CurrentLineNumber()
 
@@ -225,8 +245,12 @@ function yamove#YaMoveIn()
         if (MoveOnMultipleHits())
             if (g:yaMoveAttemptedInnerMove == 1)
 
-                " TODO
-                "echom "Attempt to find next line and move in"
+                "Attempt to find next line and move in
+                let nextInner = FindNextInnerSection(line, 1)
+                if (IsFolded(nextInner))
+                    call yamove#YaUnfoldBelow(nextInner - 1)
+                endif
+                call MoveToLine(nextInner)
                 let g:yaMoveAttemptedInnerMove = 0
             else
                 let g:yaMoveAttemptedInnerMove = 1
