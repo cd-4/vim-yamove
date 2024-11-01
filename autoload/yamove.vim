@@ -286,7 +286,7 @@ function yamove#YaFoldBelow(lineNumber)
     " Get fold range
     let foldTop = GetEndOfIndentationLevel(foldLine, -1) + 1
     let foldBottom = GetEndOfIndentationLevel(foldLine, 1) - 1
-    if foldBottom = line('$') - 1
+    if foldBottom == line('$') - 1
         let foldBottom = foldBottom + 1
     endif
 
