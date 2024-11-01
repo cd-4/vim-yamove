@@ -114,7 +114,9 @@ function YaMoveInDirectional(direction)
     let startLine = CurrentLineNumber()
     let startIndentation =  GetIndentationDepth(startLine)
     let currentLine = startLine + a:direction
-    while (GetIndentationDepth(currentLine) == -1)
+    while (GetIndentationDepth(currentLine) == -1 
+                \ && currentLine <= line('$')
+                \ && currentLine >= 1)
         echom "While Loop " . currentLine
         let currentLine += a:direction
     endwhile
