@@ -215,6 +215,7 @@ function FindNextInnerSection(startLine, direction)
                 \ || currentDepth == -1)
                 \ && currentLine > 0
                 \ && currentLine <= line('$'))
+        echom "Test Line " . currentLine
         let currentLine += a:direction
         let currentDepth = GetIndentationDepth(currentLine)
         if (currentDepth > startIndentation)
