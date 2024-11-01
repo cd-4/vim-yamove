@@ -248,7 +248,7 @@ endfunction
 function yamove#YaMoveInUp()
     let currentLine = CurrentLineNumber()
     let line = YaMoveInDirectional(-1)
-    if (line == currentLevel)
+    if (line == currentLine)
         " TODO look at YaMoveIn
         return
     endif
