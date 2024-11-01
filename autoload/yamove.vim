@@ -132,7 +132,7 @@ function MoveToLine(...)
         let store = a:2
     endif
     if (store == 1)
-        execute "norm " . lineNumber . "G"
+        execute "norm " . lineNumber . "G^"
     else
         call cursor(lineNumber, 0)
         execute "norm ^"
