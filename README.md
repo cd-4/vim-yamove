@@ -4,6 +4,9 @@ This plugin was initially created to help navigate large Yaml files, where
 I could not easily keep track of the indentation of certain values, but can
 help users navigate other files as well.
 
+Additionally, you can enable smart folding, so values with greater indentation
+will be folded.
+
 ## Installation
 
 #### VimPlug
@@ -27,10 +30,10 @@ YaToggleSmartFolds | Toggle whether smart folds are enabled
 
 ### Setting
 
-Setting (1=enabled, 0=disabled) | Description
-g:enableYaMoveSmartFolds | Enable intelligent folding to hide levels with more indentation
-g:enableYaMoveCloseOnMoveOut | Enable to close folds when using `YaMoveOut` or `YaMoveOutDown`
-g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after pressing the direction twice
+Setting (1=enabled, 0=disabled) | Description | Default
+g:enableYaMoveSmartFolds | Enable intelligent folding to hide levels with more indentation | 0
+g:enableYaMoveCloseOnMoveOut | Enable to close folds when using `YaMoveOut` or `YaMoveOutDown` | 1
+g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after pressing the direction twice | 1
 
 ##### Note:
 
