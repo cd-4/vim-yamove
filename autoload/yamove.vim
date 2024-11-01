@@ -336,7 +336,7 @@ function yamove#ToggleYaFold()
     endif
 endfunction
 
-function yamove#YaMoveToggleSmartFolds()
+function yamove#YaToggleSmartFolds()
     if (g:enableYaMoveSmartFolds == 1)
         let g:enableYaMoveSmartFolds = 0
     else

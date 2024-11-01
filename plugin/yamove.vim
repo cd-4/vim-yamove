@@ -27,7 +27,7 @@ command! -nargs=0 YaMoveInUp call yamove#YaMoveInUp()
 command! -nargs=0 ToggleYaFold call yamove#ToggleYaFold()
 command! -nargs=0 YaFoldBelow call yamove#YaFoldBelow()
 command! -nargs=0 YaUnfoldBelow call yamove#YaUnfoldBelow()
-command! -nargs=0 YaToggleSmartFolds call yamove#YaMoveToggleSmartFolds()
+command! -nargs=0 YaToggleSmartFolds call yamove#YaToggleSmartFolds()
 
 
 
