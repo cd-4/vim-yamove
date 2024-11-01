@@ -111,13 +111,13 @@ endfunction
 
 function YaMoveInDirectional(direction)
     let startLine = CurrentLineNumber()
-    let startIndentation =  GetLineIndentationDepth(startLine)
+    let startIndentation =  GetIndentationDepth(startLine)
     let currentLine = startLine + a:direction
-    while (GetLineIndentationDepth(currentLine) == -1)
+    while (GetIndentationDepth(currentLine) == -1)
         let currentLine += a:direction
     endwhile
 
-    let resultIndentation = GetLineIndentationDepth(currentLine)
+    let resultIndentation = GetIndentationDepth(currentLine)
     if (resultIndentation > startIndentation)
         return currentLine
     endif
