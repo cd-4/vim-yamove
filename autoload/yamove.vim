@@ -36,7 +36,7 @@ endfunction
 
 function MoveOnMultipleHits()
     if !exists("g:enableYaMoveOnMultipleHits")
-        let g:enableYaMoveOnMultipleHits = 1
+        let g:enableYaMoveOnMultipleHits = 0
     endif
     return g:enableYaMoveOnMultipleHits == 1
 endfunction
