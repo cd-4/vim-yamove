@@ -109,6 +109,22 @@ function GetNextSameIndentation(lineNumber, direction)
     return a:lineNumber
 endfunction
 
+function YaMoveInDirectional(direction)
+    let startLine = CurrentLineNumber()
+    let startIndentation =  GetLineIndentationDepth(startLine)
+    let currentLine = startLine + a:direction
+    while (GetLineIndentationDepth(currentLine) == -1)
+        let currentLine += a:direction
+    endwhile
+
+    let resultIndentation = GetLineIndentationDepth(currentLine)
+    if (resultIndentation > startIndentation)
+        return currentLine
+    endif
+    return startLine
+endfunction
+
+
 function MoveToLine(...)
     let lineNumber = a:1
     let store = 0
