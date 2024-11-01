@@ -227,7 +227,7 @@ function yamove#YaMoveIn()
     endif
 
     if (IsFolded(line))
-        call YaUnfoldBelow(currentLine)
+        call yamove#YaUnfoldBelow(currentLine)
     endif
 
     call MoveToLine(line, 1)
@@ -246,7 +246,7 @@ function yamove#YaMoveInUp()
 
     if (IsFolded(line))
         let previousLine = YaMoveUpDownPosition(currentLine, -1)
-        call YaUnfoldBelow(previousLine)
+        call yamove#YaUnfoldBelow(previousLine)
     endif
 
     let startDepth = GetIndentationDepth(currentLine)
