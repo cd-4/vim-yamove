@@ -7,6 +7,16 @@ help users navigate other files as well.
 Additionally, you can enable smart folding, so values with greater indentation
 will be folded.
 
+
+##### Preview
+
+![preview gif](https://i.imgur.com/ukyaSkl.gif)
+
+
+##### SmartFolds Preview
+
+![preview folds](https://i.imgur.com/P7kacz4.gif)
+
 ## Installation
 
 #### VimPlug
