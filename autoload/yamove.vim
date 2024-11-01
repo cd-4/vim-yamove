@@ -291,6 +291,8 @@ function yamove#YaMoveInUp()
                 let belowNextInner = FindNextInnerSection(line, -1) + 1
                 call MoveToLine(belowNextInner)
                 call yamove#YaMoveInUp()
+            else
+                let g:yaMoveAttemptedInnerMove = -1
             endif
         endif
         return
