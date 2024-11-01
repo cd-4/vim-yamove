@@ -36,14 +36,6 @@ g:enableYaMoveSmartFolds | Enable intelligent folding to hide levels with more i
 g:enableYaMoveCloseOnMoveOut | Enable to close folds when using `YaMoveOut` or `YaMoveOutDown` | 1
 g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after pressing the direction twice | 1
 
-##### Note:
-
-The `YaMoveUp` and `YaMoveDown` functions will stop upon reaching a line with
-lesser indentation.
-
-If you would like to disable this, you can set `g:enableYaMoveMultipleHits = 1` (Default is `0`). With this set, your initial move will stop, then on a subsequent call of `YaMoveUp` or `YaMoveDown`, it will bring you to that line that blocked you.
-
-
 ## Usage
 
 This is entirely up to you, but I've found that a setup like this works for me:
@@ -55,8 +47,14 @@ nnoremap <C-k> :YaMoveUp<CR>
 nnoremap <C-h> :YaMoveOut<CR>
 nnoremap <C-l> :YaMoveIn<CR>
 
+" Less necessary movement
+nnoremap <C-n> :YaMoveOutDown<CR>
+nnoremap <C-p> :YaMoveInUp<CR>
+
 " Folds
 nnoremap <C-f> :ToggleYaFold<CR>
+
+
 ```
 
 With this, you can hold `CTRL` and navigate using `hjkl` to quickly
