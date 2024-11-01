@@ -31,6 +31,7 @@ YaToggleSmartFolds | Toggle whether smart folds are enabled
 ### Setting
 
 Setting (1=enabled, 0=disabled) | Description | Default
+--- | --- | ---
 g:enableYaMoveSmartFolds | Enable intelligent folding to hide levels with more indentation | 0
 g:enableYaMoveCloseOnMoveOut | Enable to close folds when using `YaMoveOut` or `YaMoveOutDown` | 1
 g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after pressing the direction twice | 1
