@@ -220,7 +220,7 @@ function FindNextInnerSection(startLine, direction)
         let currentDepth = GetIndentationDepth(currentLine)
         if (currentDepth > startIndentation)
             return currentLine
-        else
+        elseif (currentDepth < startIndentation)
             return a:startLine
         endif
     endwhile
