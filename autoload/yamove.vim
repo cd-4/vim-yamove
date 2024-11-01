@@ -77,7 +77,7 @@ function GetEndOfIndentationLevel(lineNumber, direction)
     let indentationDepth = startIndentationDepth
     while (indentationDepth >= startIndentationDepth || indentationDepth == -1)
         let lineIndex += a:direction
-        let indentationDepth GetIndentationDepth(lineIndex)
+        let indentationDepth = GetIndentationDepth(lineIndex)
         if (lineIndex > lastLine)
             return lastLine
         elseif (lineIndex < 1)
