@@ -23,7 +23,7 @@ function SmartFoldCloseOnMoveOut()
     if !exists("g:enableYaMoveCloseOnMoveOut")
         let g:enableYaMoveCloseOnMoveOut = 1
     endif
-    return g:enableYaMoveSmartFolds == 1
+    return g:enableYaMoveCloseOnMoveOut == 1
 endfunction
 
 
