@@ -110,14 +110,12 @@ function GetNextSameIndentation(lineNumber, direction)
 endfunction
 
 function YaMoveInDirectional(direction)
-    echom "Move In Directional"
     let startLine = CurrentLineNumber()
     let startIndentation =  GetIndentationDepth(startLine)
     let currentLine = startLine + a:direction
     while (GetIndentationDepth(currentLine) == -1 
                 \ && currentLine <= line('$')
                 \ && currentLine >= 1)
-        echom "While Loop " . currentLine
         let currentLine += a:direction
     endwhile
 
@@ -238,7 +236,6 @@ function yamove#YaMoveIn()
     endif
 
     if (IsFolded(line))
-        echom "Unfold"
         call yamove#YaUnfoldBelow(currentLine)
     endif
 
