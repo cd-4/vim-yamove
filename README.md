@@ -18,8 +18,19 @@ Command | Description
 --- | ---
 YaMoveDown | Move to the next line with the same indentation
 YaMoveUp | Move the the previous line with the same indentation
-YaMoveIn | Move to a line with more indentation below the current line
+YaMoveIn | Move to a line with below with more indentation
 YaMoveOut | Move to a line above with lesser indentation
+YaMoveOutDown | Move to a line below with lesser indentation
+YaMoveInUp | Move to a line above with more indentation
+ToggleYaFold | Toggle the fold below the key you are on
+YaToggleSmartFolds | Toggle whether smart folds are enabled
+
+### Setting
+
+Setting (1=enabled, 0=disabled) | Description
+g:enableYaMoveSmartFolds | Enable intelligent folding to hide levels with more indentation
+g:enableYaMoveCloseOnMoveOut | Enable to close folds when using `YaMoveOut` or `YaMoveOutDown`
+g:enableYaMoveOnMultipleHits | Enable to allow escaping from lower indentations after pressing the direction twice
 
 ##### Note:
 
@@ -34,10 +45,14 @@ If you would like to disable this, you can set `g:enableYaMoveMultipleHits = 1` 
 This is entirely up to you, but I've found that a setup like this works for me:
 
 ```
+" Movement
 nnoremap <C-j> :YaMoveDown<CR>
 nnoremap <C-k> :YaMoveUp<CR>
 nnoremap <C-h> :YaMoveOut<CR>
 nnoremap <C-l> :YaMoveIn<CR>
+
+" Folds
+nnoremap <C-f> :ToggleYaFold<CR>
 ```
 
 With this, you can hold `CTRL` and navigate using `hjkl` to quickly

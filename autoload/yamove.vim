@@ -35,10 +35,10 @@ function SmartFoldsEnabled()
 endfunction
 
 function MoveOnMultipleHits()
-    if !exists("g:yaMoveOnMultipleHits")
-        let g:yaMoveOnMultipleHits = 1
+    if !exists("g:enableYaMoveOnMultipleHits")
+        let g:enableYaMoveOnMultipleHits = 1
     endif
-    return g:yaMoveOnMultipleHits == 1
+    return g:enableYaMoveOnMultipleHits == 1
 endfunction
 
 function GetIndentationDepth(lineNumber)
