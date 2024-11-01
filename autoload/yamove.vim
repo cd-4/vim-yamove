@@ -13,7 +13,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 let g:YaMoveLastAttemptedDirection = 0
-let g:yaMoveAttemptedInnerMove == 0
+let g:yaMoveAttemptedInnerMove = 0
 
 function CurrentLineNumber()
     return line(".")
