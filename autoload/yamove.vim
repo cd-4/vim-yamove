@@ -215,7 +215,6 @@ function FindNextInnerSection(startLine, direction)
                 \ || currentDepth == -1)
                 \ && currentLine > 0
                 \ && currentLine <= line('$'))
-        echom "Test Line " . currentLine
         let currentLine += a:direction
         let currentDepth = GetIndentationDepth(currentLine)
         if (currentDepth > startIndentation)
@@ -239,17 +238,15 @@ function yamove#YaMoveIn()
     if (IsFolded(currentLine))
         return
     endif
+
     let line = YaMoveInDirectional(1)
 
-    "If not moving, do nothing
     if (line == currentLine)
         if (MoveOnMultipleHits())
             if (g:yaMoveAttemptedInnerMove == 1)
 
-                echom "Start line " . line
                 "Attempt to find next line and move in
                 let nextInner = FindNextInnerSection(line, 1)
-                echom "Next Inner " . nextInner
                 if (IsFolded(nextInner))
                     call yamove#YaUnfoldBelow(nextInner - 1)
                 endif
@@ -274,11 +271,30 @@ endfunction
 
 function yamove#YaMoveInUp()
     let currentLine = CurrentLineNumber()
-    let line = YaMoveInDirectional(-1)
-    if (line == currentLine)
-        " TODO look at YaMoveIn
+
+    "Cannot indent on line with nothing in it
+    if (GetIndentationDepth(currentLine) == -1)
         return
     endif
+
+    " Cannot move in on folded line
+    if (IsFolded(currentLine))
+        return
+    endif
+
+    let line = YaMoveInDirectional(-1)
+
+    if (line == currentLine)
+        if (MoveOnMultipleHits())
+            if (g:yaMoveAttemptedInnerMove == -1)
+                "Attempt to find previous inner line and move in
+                let belowNextInner = FindNextInnerSection(line, -1) + 1
+                call yamove#YaMoveInUp()
+            endif
+        endif
+        return
+    endif
+
 
     if (IsFolded(line))
         let previousLine = YaMoveUpDownPosition(currentLine, -1)
