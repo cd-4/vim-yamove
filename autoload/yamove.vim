@@ -50,7 +50,7 @@ function GetIndentationDepth(lineNumber)
         return -1
     endif
 
-    while (lineText[indent] == " " || lineText[index] == '\t')
+    while (lineText[index] == " " || lineText[index] == '\t')
         let index += 1
     endwhile
     return index
