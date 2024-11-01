@@ -289,6 +289,7 @@ function yamove#YaMoveInUp()
             if (g:yaMoveAttemptedInnerMove == -1)
                 "Attempt to find previous inner line and move in
                 let belowNextInner = FindNextInnerSection(line, -1) + 1
+                call MoveToLine(belowNextInner)
                 call yamove#YaMoveInUp()
             endif
         endif
