@@ -206,6 +206,13 @@ endfunction
 
 function yamove#YaMoveIn()
     let currentLine = CurrentLineNumber()
+
+    " Cannot indent on line with nothing in it
+    if (GetIndentationDepth(currentLine) == -1)
+        return
+    endif
+
+    " Cannot move in on folded line
     if (IsFolded(currentLine))
         return
     endif
@@ -334,32 +341,6 @@ function yamove#YaMoveToggleSmartFolds()
         let g:enableYaMoveSmartFolds = 1
     endif
 endfunction
-
-
-
-"function yamove#YaMoveOut()
-    "let position = GetEndOfIndentationLevel(CurrentLineNumber(), -1)
-    "call MoveToLine(position)
-    "let g:yaMoveLimitedDirection = 0
-"endfunction
-"
-"function yamove#YaMoveOutDown()
-    "let position = GetEndOfIndentationLevel(CurrentLineNumber(), 1)
-    "call MoveToLine(position)
-    "let g:yaMoveLimitedDirection = 0
-"endfunction
-"
-"function yamove#YaMoveIn()
-    "let position = YaMoveInDirectional(1)
-    "call MoveToLine(position)
-    "let g:yaMoveLimitedDirection = 0
-"endfunction
-"
-"function yamove#YaMoveInUp()
-    "let position = YaMoveInDirectional(-1)
-    "call MoveToLine(position)
-    "let g:yaMoveLimitedDirection = 0
-"endfunction
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
